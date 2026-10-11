@@ -1,0 +1,2 @@
+import type { CapacitorConfig } from '@capacitor/cli';
+const config: CapacitorConfig = { appId: 'com.classroomstudio.app', appName: 'Classroom Studio', webDir: 'dist', bundledWebRuntime: false, plugins: { SplashScreen: { launchShowDuration: 900, backgroundColor: '#17243a' }, StatusBar: { backgroundColor: '#17243a', style: 'DARK' } } }; export default config;
