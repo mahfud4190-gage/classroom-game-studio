@@ -1,10 +1,18 @@
 {
   "name": "classroom-game-studio",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Multi-game classroom platform starter with Firebase Auth and Firestore, ready for Netlify and Capacitor expansion.",
-  "scripts": {"dev":"vite --host 0.0.0.0", "build":"vite build", "preview":"vite preview --host 0.0.0.0"},
-  "dependencies": {"firebase":"^12.4.0"},
-  "devDependencies": {"vite":"^7.1.9"}
+  "description": "Route-based multi-page Classroom Game Studio starter with luxury visual system and Firebase Auth/Firestore baseline.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "firebase": "^12.4.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.9"
+  }
 }

@@ -1,13 +1,12 @@
 # Deployment checklist
 
-- [ ] Enable Email/Password in Firebase Authentication.
-- [ ] Create Firestore database.
-- [ ] Deploy `firebase/firestore.rules` and review in Rules Simulator.
-- [ ] Add actual Netlify production, preview (if required), and custom domains to Firebase Auth Authorized domains.
-- [ ] Set Netlify environment variables if configuration should not use built-in defaults.
-- [ ] Set Firebase API key HTTP referrer restrictions in Google Cloud Console.
-- [ ] `npm install` and `npm run build` pass locally and in Netlify.
-- [ ] Test sign-up/login/reset with two separate email accounts.
-- [ ] Test create/join room using two devices/browsers.
-- [ ] Confirm no Admin SDK credentials are present in frontend files.
-- [ ] Before production, add rate limiting/abuse protection, App Check, email verification policy, data retention, privacy policy, and complete game-state validation.
+- [ ] Install dependencies and confirm `npm run build` completes locally.
+- [ ] Configure Firebase Authentication > Email/Password.
+- [ ] Add the deployed Netlify hostname under Firebase Authentication authorized domains.
+- [ ] Confirm Firestore exists in project `classroom-game-studio`.
+- [ ] Review `firebase/firestore.rules` against room creation, invite lookup, joining, and member-list flows before deploying.
+- [ ] Deploy the package with Netlify build command `npm run build` and publish directory `dist`.
+- [ ] Test sign-up, login, reset password, logout, room creation, join code, and room list with two independent accounts.
+- [ ] Verify every routed view on desktop and mobile: Home, Dashboard, Game Library, Template Detail, Game Studio, Rooms, Profile.
+- [ ] Do not treat Werewolf or other template cards as fully playable until game engines and multiplayer state transitions have passed end-to-end tests.
+- [ ] Configure and test Capacitor native projects separately before Play Store / App Store submission.
