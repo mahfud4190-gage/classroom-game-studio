@@ -1,34 +1,16 @@
 # Classroom Game Studio
 
-Multi-game classroom platform starter. This revision keeps the current Firebase/Netlify baseline and reorganizes the interface into route-based pages with a restrained luxury visual system (midnight navy, warm ivory, muted brass, and sage accents).
+Multi-game classroom platform starter with a restrained navy / ivory / sage design, Firebase modular Web SDK, email/password authentication, and Firestore room creation/joining.
 
-## Pages
-
-- `#/home` — landing page
-- `#/dashboard` — workspace dashboard
-- `#/library` — game library with category filters
-- `#/game?id=...` — individual template detail
-- `#/studio` — template selection / studio entry
-- `#/rooms` — create and join Firestore rooms
-- `#/profile` — Firebase account status and logout
-
-The app uses one Vite entry point and client-side route rendering. Pages are separate navigable views, not separate HTML documents. This keeps shared authentication and existing room logic canonical instead of duplicating handlers across HTML files.
-
-## Stack
-
-- Vite
-- Firebase modular Web SDK (`firebase` npm package)
-- Firebase Authentication (email/password)
-- Cloud Firestore
-- Netlify static deployment
-- Capacitor configuration starter for a future native wrapper
-
-## Local development
+## Run locally
 
 ```bash
+cp .env.example .env
 npm install
 npm run dev
 ```
+
+The Firebase configuration is already populated with the web-app values supplied for project `classroom-game-studio`. `.env` overrides are optional.
 
 ## Build and deploy
 
@@ -36,13 +18,16 @@ npm run dev
 npm run build
 ```
 
-Netlify build command: `npm run build`
-Netlify publish directory: `dist`
+Netlify settings are in `netlify.toml`: build command `npm run build`, publish directory `dist`. Follow `docs/SETUP-ID.md` for Firebase Authentication, Authorized domains, Firestore rules, and deployment.
 
-Set `VITE_FIREBASE_*` environment variables in Netlify if you want to override the Firebase web app configuration. The supplied Firebase project defaults are kept from the accepted baseline.
+## Included
 
-## Important implementation status
+- Responsive game library with eight game categories and sample cards.
+- Firebase modular SDK (`firebase/app`, `firebase/analytics`, `firebase/auth`, `firebase/firestore`). Analytics is optional and safely skipped when unsupported.
+- Email/password sign-up, login, logout, and password reset.
+- Firestore create/join room starter and signed-in user's room list.
+- Firestore and Storage security rules, Netlify SPA fallback, Capacitor config scaffold.
 
-This is still an evolving MVP/starter, not a production-complete game platform. Firebase email/password sign-in, password reset, room creation, joining by invite code, and room list subscriptions are retained from the baseline. The individual template pages and multi-page navigation are now present. Full gameplay engines, editable/persisted game configurations, round/role/voting logic for Werewolf, production-grade room security, and final Android/iOS store builds still need implementation and end-to-end testing.
+## Important scope note
 
-Deploy Firestore and Storage rules only after reviewing them against the intended game flows and test accounts. Never put Firebase Admin service-account credentials in frontend code.
+This is a working starter, not a finished multi-game product. Werewolf role assignment, round-state engine, voting, realtime chat, host moderation, full template editor, and complete native Android/iOS projects are not included yet. Never loosen Firestore rules to public read/write as a shortcut.
