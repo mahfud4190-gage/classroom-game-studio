@@ -1,19 +1,17 @@
-# Classroom Game Studio — 3D Artwork Delta
-
-Apply this delta on top of `classroom-game-studio-delta-screen-first-luxury.zip` (the latest screen-first revision available in the conversation), which itself follows the multipage baseline. This is a source delta, not a full app package.
-
-## Included
-- `src/main.js`: adds artwork metadata and renders artwork in Game Library cards and game detail. Existing route, auth, room and Firestore handlers are retained from the supplied latest revision.
-- `src/styles.css`: adds responsive artwork styling; existing styles remain in place.
-- `public/assets/game-art/*.webp`: eight individual 800×600 images cropped from the approved 3D concept-art sheet. Some categories share artwork where the original concept art has only eight category worlds.
+# Classroom Game Studio — Floating Island Gallery Delta
 
 ## Apply
-Unzip at the project root and allow the two source files to replace their matching files; copy the `public/assets/game-art/` folder. Do not replace other baseline files.
+Copy the contents of this delta into the matching paths in the existing `classroom-game-studio-delta-screen-first-luxury.zip` baseline. This is a delta, not a standalone app.
 
-## Validation status
-- ZIP structure and asset dimensions: checked during package creation.
-- JavaScript syntax: checked with Node syntax parser where available.
-- Production build and browser regression: not run in this environment; verify with the project's existing Netlify build/test commands before deployment.
+## Changed files
+- `src/main.js` — renders category-mapped artwork in the game library and game detail; keeps existing route, filtering, pagination, auth, Firebase, and room handlers intact.
+- `src/styles.css` — append these styles to the end of the existing canonical `src/styles.css` (do not replace the baseline stylesheet).
+- `public/assets/game-art/*.webp` — eight category artworks reused by games in the same category.
 
-## CBNR note
-No auth, Firestore, room, routing, or game rules were intentionally changed. Visual changes are limited to Game Library cards and game-detail artwork.
+## Visual result
+The library becomes an artwork-led floating-island gallery instead of plain text-first cards. Desktop uses three columns, tablet and mobile use two columns (very narrow screens fall back to one). Game-detail artwork is also included. Existing one-screen route structure is preserved.
+
+## Limitations and verification
+- Artwork assets are the eight existing approved category crops; no new images were generated in this delta. Werewolf and Detective Case share the Mystery Games category artwork.
+- Production build, Firebase integration tests, and browser/device regression tests have **not** been run here. Do not treat this package as production-verified until tested against the complete project.
+- CSS is an additive file: append it to the canonical stylesheet. Do not overwrite the baseline stylesheet with this CSS-only delta.
